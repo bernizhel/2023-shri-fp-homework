@@ -32,6 +32,7 @@ import {
     converge,
     any,
     omit,
+    count,
 } from "ramda";
 
 // Проверки на цвет
@@ -83,7 +84,7 @@ const hasTwoGreenShapes = compose(isEqualToTwo, countGreenShapes);
 
 // Проверка, что все формы одного цвета (7, 9)
 const isNotColor = (color) => complement(equals(color));
-const doesAllHaveColor = (color) => pipe(values, filter(isNotColor(color)), length, equalsToZero);
+const doesAllHaveColor = (color) => pipe(values, count(isNotColor(color)), equalsToZero);
 
 //
 // Функции проверки
